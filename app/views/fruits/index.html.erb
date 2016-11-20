@@ -1,5 +1,11 @@
+<a href="">Sort by name</a>
+<a href="/fruits?sort_by=price">Sort by price</a>
+<a href="">Sort by description</a>
+
 <h1>All Fruits</h1>
 <% @fruits.each do |fruit| %>
   <h2><%= fruit.name %></h2>
+  <p><%= fruit.price %></p>
+  <p><%= fruit.image %></p>
   <p><%= fruit.description %></p>
 <% end %>
