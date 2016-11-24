@@ -5,29 +5,27 @@ class FruitsController < ApplicationController
     render 'index.html.erb'
   end
    
-  def show
-    @fruit = Fruit.find_by(id: params[:id])
-    render 'show.html.erb'
-  end
-
   def new
+    @fruit = Fruit.new
     render 'new.html.erb'
   end
 
   def create
     @fruit = Fruit.new(
-      name: params["name"],
-      price: params["price"],
-      image: params["image"],
-      description: params["description"]
+      name: params[:name],
+      price: params[:price],
+      image: params[:image],
+      description: params[:description]
     )
-    @fruit.save
-    redirect_to "/fruits/#{@fruit.id}"
+    if @fruit.save
+      redirect_to "/fruits/#{@fruit.id}"
+    else
+      render :new
+    end
   end
 
   def show
-    fruit_id = params[:id]
-    @fruits = Fruit.find_by(id: fruit_id)
+    @fruit = Fruit.find_by(id: params[:id])
     render 'show.html.erb'
   end
 

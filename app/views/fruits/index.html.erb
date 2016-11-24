@@ -5,7 +5,8 @@
 <h1>All Fruits</h1>
 <% @fruits.each do |fruit| %>
   <h2><%= fruit.name %></h2>
-  <p><%= fruit.price %></p>
-  <p><%= fruit.image %></p>
+  <p><%= number_to_currency(fruit.price) %></p>
+  <p><%= image_tag fruit.image, class: "fruit-image" %></p>
   <p><%= fruit.description %></p>
+  <p><a href="/fruits/<%= fruit.id %>" data-method="delete">Delete</a></p>
 <% end %>
