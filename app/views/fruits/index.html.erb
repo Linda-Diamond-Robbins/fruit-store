@@ -8,5 +8,5 @@
   <p><%= number_to_currency(fruit.price) %></p>
   <p><%= image_tag fruit.image, class: "fruit-image" %></p>
   <p><%= fruit.description %></p>
-  <p><a href="/fruits/<%= fruit.id %>" data-method="delete">Delete</a></p>
+  <p><a href="/fruits/<%= fruit.id %>" data-method="delete" data-confirm="Are you sure you want to delete this?">Delete</a></p>
 <% end %>
